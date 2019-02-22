@@ -113,9 +113,10 @@ class SortingRobot:
                     self.swap_item()
                     self.set_light_on()
                 self.move_left()
+            print(self._list)
 
 #This is very similar to bubble sort. I turn the light on signaling the array isn't sorted.
-#I turn the light off in the beginning of the while loop and only once I at least swap once
+#I turn the light off in the beginning of the while loop and only if I at least swap once
 #do I turn the light on again essentially continuing the while loop signalling it hasn't been sorted.
 #Theorically if I go through both while loops without swapping the loop should end.
 #As I move to the right I swap out anything less than
