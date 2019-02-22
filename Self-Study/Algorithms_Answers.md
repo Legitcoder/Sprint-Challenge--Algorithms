@@ -52,4 +52,5 @@ runtime complexity of your solution.
 2) Here we can take the midpoint story of the n-story building and drop one egg to see if it breaks. 
 If it does, we can take the next LOWER midpoint story of the building until the egg being dropped 
 doesn't break. This process will be repeated until we pin point f. The reverse can also happen. We 
-may continuously take the HIGHER midpoint story of the building until the egg breaks pin pointing f. 
+may continuously take the HIGHER midpoint story of the building until the egg breaks pin pointing f.
+The time complexity for this is O(logn). This algorithm works like Binary Search.  
