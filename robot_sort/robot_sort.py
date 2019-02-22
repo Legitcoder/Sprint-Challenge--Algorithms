@@ -100,8 +100,30 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        self.set_light_on()
+        while self.light_is_on():
+            self.set_light_off()
+            while self.can_move_right():
+                if self.compare_item() == -1 or self.compare_item() == None:
+                    self.swap_item()
+                    self.set_light_on()
+                self.move_right()
+            while self.can_move_left():
+                if self.compare_item() == 1 or self.compare_item() == None:
+                    self.swap_item()
+                    self.set_light_on()
+                self.move_left()
+
+#This is very similar to bubble sort. I turn the light on signaling the array isn't sorted.
+#I turn the light off in the beginning of the while loop and only once I at least swap once
+#do I turn the light on again essentially continuing the while loop signalling it hasn't been sorted.
+#Theorically if I go through both while loops without swapping the loop should end.
+#As I move to the right I swap out anything less than
+#what is being held by the robot or None to the position since I'm incrementing. I do the opposite
+#as move to the right. I am however struggling with the None edge case.
+
+
+
 
 
 if __name__ == "__main__":
