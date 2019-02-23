@@ -98,35 +98,28 @@ class SortingRobot:
         return self._light == "ON"
 
     def sort(self):
-        """
-        Sort the robot's list.
-        """
         self.set_light_on()
-        self.swap_item()
         while self.light_is_on():
             self.set_light_off()
             while self.can_move_right():
-                if self.compare_item() == -1 or self.compare_item() == None:
-                    self.swap_item()
-                    self.set_light_on()
+                self.swap_item()
                 self.move_right()
-            while self.can_move_left():
-                if self.compare_item() == 1 or self.compare_item() == None:
+                if self.compare_item() == 1:
                     self.swap_item()
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
                     self.set_light_on()
-                self.move_left()
-            print(self._item)
-            print(self._list)
+                elif self.compare_item() == -1 or self.compare_item() == 0:
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+            if self.light_is_on():
+                while self.can_move_left():
+                    self.move_left()
 
 
 
-#This is very similar to bubble sort. I turn the light on signaling the array isn't sorted.
-#I turn the light off in the beginning of the while loop and only if I at least swap once
-#do I turn the light on again essentially continuing the while loop signalling it hasn't been sorted.
-#Theorically if I go through both while loops without swapping the loop should end.
-#As I move to the right I swap out anything less than
-#what is being held by the robot or None to the position since I'm incrementing. I do the opposite
-#as move to the right. I am however struggling with the None edge case.
 
 
 
